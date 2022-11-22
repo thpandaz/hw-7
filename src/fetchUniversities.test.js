@@ -10,3 +10,9 @@ test("fetchUniversities follows type specification", () => {
     assert(result.every((x) => typeof x === "string")); // Assert each element in the array is a string
   });
 });
+
+test("fetchUniversities results match query", () => {
+  return fetchUniversities("University of Massachusetts").then(list => {
+    assert(list.every(e => e.includes("University of Massachusetts")));
+  });
+});
